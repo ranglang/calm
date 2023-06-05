@@ -1,0 +1,29 @@
+{
+  "name": "claim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "update_clouds": "mill jep.runMain e.Entry update_clouds",
+    "notice:result": "open https://www.notion.so/kunlive/test36bb7808339041cba1809ac2b536ebb8-36bb7808339041cba1809ac2b536ebb8",
+    "potly": "mill jep.runMain m.PlotlyEntry",
+    "notice": "mill jep.runMain e.Entry notice",
+    "interview": "mill jep.runMain m.InterviewEntry",
+    "trade": "mill jep.assembly; java -cp out/jep/assembly.dest/out-tmp.jar e.TradeEntry ",
+    "commit": "mill jep.assembly; java -cp out/jep/assembly.dest/out-tmp.jar e.CommitEntry ",
+    "vim:option": "zed jep/src/e/OptionConfig.scala",
+    "reflect": "fig run reflect",
+    "add-option": "fig run add-option",
+    "status:cache": "cat /tmp/status.md",
+    "status": "bloop run jep -m e.ListOptionEntry -- status",
+    "journey": "fig run journey",
+    "start": "fig run claim",
+    "sync:contract": "java -cp out/jep/assembly.dest/out-tmp.jar e.ListOptionEntry list_contract > /dev/null 2>&1; cat /tmp/tmp_option_list.json",
+    "list": " bloop run jep -m e.OptionJourneyEntry -- --content 50ETF购5月2500 -p 2 -n 1 -d commandbuy",
+    "reformat": "ulimit -c unlimited; mill arc.reformat;mill notion.reformat;sleep 50; mill jep.reformat;mill model.reformat;mill boat.reformat",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,14 @@
+akshare>=1.3.72
+Pillow>=8.0
+mplfinance
+xlrd==1.2.0
+cassandra-driver
+tushare
+jqdatasdk
+tqdm
+seaborn
+tqsdk
+setuptools
+tqdm
+jep==3.9.1
+cupfromriver

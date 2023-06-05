@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+<!--        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+<!--            <level>INFO</level>-->
+<!--        </filter>-->
+        <encoder>
+            <pattern>%-5level %d{yyyy-MM-dd HH:mm:ss} %logger{36} - %msg%n</pattern>
+        </encoder>
+
+
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>org.apache.http.headers</className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+
+        </filter>
+
+
+
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>o.a.h.i.conn.tsccm.ConnPoolByRoute</className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>
+                o.s.j.u.component.AbstractLifeCycle
+            </className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>
+                o.a.h.c.p.RequestProxyAuthentication
+            </className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>
+                o.s.j.s.h.ContextHandlerCollection
+            </className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>c.g.m.a.d.p.c.PostgreSQLConnectionHandler</className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+        </filter>
+
+
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>c.a.o.a.l.p.internals.ProducerBatch</className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+
+            <className>
+                o.s.jetty.servlet.ServletHandler
+            </className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+
+            <className>
+                o.a.h.c.protocol.RequestAddCookies
+            </className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>
+                o.a.h.c.p.RequestProxyAuthentication
+            </className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>
+                o.a.h.i.c.t.ThreadSafeClientConnManager
+            </className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>o.a.h.i.conn.tsccm.ConnPoolByRoute</className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>o.a.h.impl.client.DefaultHttpClient</className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>o.a.h.i.c.t.ThreadSafeClientConnManager</className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>c.a.o.a.l.p.internals.ProducerBatch</className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>o.s.jetty.io.ManagedSelector</className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+        <filter class="o.a.h.i.conn.DefaultClientConnection">
+            <className>o.s.j.util.thread.QueuedThreadPool</className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>o.s.j.util.thread.QueuedThreadPool</className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>c.a.o.a.l.p.internals.ProducerBatch</className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>o.s.j.s.h.ContextHandlerCollection</className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <className>c.g.m.a.d.p.c.PostgreSQLConnectionHandler</className>
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <!--        <onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+    </appender>
+
+    <logger name="org.apache.spark" level="OFF"/>
+    <logger name="org.spark" level="OFF"/>
+    <logger name="org.spark" level="OFF"/>
+
+    <logger name="org.apache.spark.ContextCleaner" level="ERROR"/>
+    <logger name="o.j" level="ERROR"/>
+    <logger name="o.s" level="OFF"/>
+    <logger name="kamon.apm" level="OFF" />
+    <logger name="c.datastax.driver.core.ClockFactory" level="OFF"/>
+    <logger name="com.datastax.driver.core.ClockFactory" level="OFF"/>
+    <logger name="com.datastax.driver.core.NettyUtil" level="OFF"/>
+
+
+    <logger name="org.apache.http.wire" level="OFF"/>
+
+    <logger name="o.s.j.s.h.ContextHandlerCollection" level="OFF"/>
+    <logger name="o.s.jetty.servlet.ServletHandler" level="OFF"/>
+
+    <logger name="o.s.j.u.component.AbstractLifeCycle" level="OFF"/>
+
+    <logger name="org.apache.http.headers" level="OFF"/>
+    <logger name="c.a.o.a.l.p.internals.ProducerBatch" level="OFF"/>
+    <logger name="o.a.h.i.c.t.ThreadSafeClientConnManager" level="OFF"/>
+    <logger name="o.a.h.c.p.RequestProxyAuthentication" level="OFF"/>
+    <logger name="o.a.h.i.conn.tsccm.ConnPoolByRoute" level="OFF"/>
+    <logger name="o.s.j.s.h.ContextHandlerCollection" level="OFF"/>
+    <logger name="io.netty.util.Recycler" level="OFF"/>
+    <logger name="o.a.h.i.conn.tsccm.ConnPoolByRoute" level="OFF"/>
+    <logger name="o.a.h.i.conn.DefaultClientConnection" level="OFF"/>
+
+
+
+
+
+
+
+
+    <appender name="CapturingAppender" class="akka.actor.testkit.typed.internal.CapturingAppender" />
+
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <logger name="slick.basic.BasicBackend.action"          level="${log.action:-info}" />
+    <logger name="slick.basic.BasicBackend.stream"          level="${log.stream:-info}" />
+    <logger name="slick.compiler"                           level="INFO" />
+    <logger name="slick.compiler.QueryCompiler"             level="INFO" />
+    <logger name="slick.compiler.QueryCompilerBenchmark"    level="${log.qcomp.bench:-inherited}" />
+    <logger name="slick.compiler.Inline"                    level="${log.qcomp.inline:-inherited}" />
+    <logger name="slick.compiler.AssignUniqueSymbols"       level="${log.qcomp.assignUniqueSymbols:-inherited}" />
+    <logger name="slick.compiler.InferTypes"                level="${log.qcomp.inferTypes:-inherited}" />
+    <logger name="slick.compiler.ExpandTables"              level="${log.qcomp.expandTables:-inherited}" />
+    <logger name="slick.compiler.EmulateOuterJoins"         level="${log.qcomp.emulateOuterJoins:-inherited}" />
+    <logger name="slick.compiler.ForceOuterBinds"           level="${log.qcomp.forceOuterBinds:-inherited}" />
+    <logger name="slick.compiler.RemoveMappedTypes"         level="${log.qcomp.removeMappedTypes:-inherited}" />
+    <logger name="slick.compiler.CreateResultSetMapping"    level="${log.qcomp.createResultSetMapping:-inherited}" />
+    <logger name="slick.compiler.ExpandSums"                level="${log.qcomp.expandSums:-inherited}" />
+    <logger name="slick.compiler.ExpandRecords"             level="${log.qcomp.expandRecords:-inherited}" />
+    <logger name="slick.compiler.ExpandConditionals"        level="${log.qcomp.expandConditionals:-inherited}" />
+    <logger name="slick.compiler.FlattenProjections"        level="${log.qcomp.flattenProjections:-inherited}" />
+    <logger name="slick.compiler.CreateAggregates"          level="${log.qcomp.createAggregates:-inherited}" />
+    <logger name="slick.compiler.RewriteJoins"              level="${log.qcomp.rewriteJoins:-inherited}" />
+    <logger name="slick.compiler.RemoveTakeDrop"            level="${log.qcomp.removeTakeDrop:-inherited}" />
+    <logger name="slick.compiler.ResolveZipJoins"           level="${log.qcomp.resolveZipJoins:-inherited}" />
+    <logger name="slick.compiler.HoistClientOps"            level="${log.qcomp.hoistClientOps:-inherited}" />
+    <logger name="slick.compiler.ReorderOperations"         level="${log.qcomp.reorderOperations:-inherited}" />
+    <logger name="slick.compiler.MergeToComprehensions"     level="${log.qcomp.mergeToComprehensions:-inherited}" />
+    <logger name="slick.compiler.OptimizeScalar"            level="${log.qcomp.optimizeScalar:-inherited}" />
+    <logger name="slick.compiler.FixRowNumberOrdering"      level="${log.qcomp.fixRowNumberOrdering:-inherited}" />
+    <logger name="slick.compiler.PruneProjections"          level="${log.qcomp.pruneProjections:-inherited}" />
+    <logger name="slick.compiler.RewriteDistinct"           level="${log.qcomp.rewriteDistinct:-inherited}" />
+    <logger name="slick.compiler.RewriteBooleans"           level="${log.qcomp.rewriteBooleans:-inherited}" />
+    <logger name="slick.compiler.SpecializeParameters"      level="${log.qcomp.specializeParameters:-inherited}" />
+    <logger name="slick.compiler.CodeGen"                   level="${log.qcomp.codeGen:-inherited}" />
+    <logger name="slick.compiler.RemoveFieldNames"          level="${log.qcomp.removeFieldNames:-inherited}" />
+    <logger name="slick.compiler.InsertCompiler"            level="${log.qcomp.insertCompiler:-inherited}" />
+    <logger name="slick.compiler.VerifyTypes"               level="${log.qcomp.verifyTypes:-inherited}" />
+    <logger name="slick.jdbc.DriverDataSource"              level="${log.jdbc.driver:-info}" />
+    <logger name="slick.jdbc.JdbcBackend.statement"         level="${log.jdbc.statement:-info}" />
+    <logger name="slick.jdbc.JdbcBackend.parameter"         level="${log.jdbc.parameter:-info}" />
+    <logger name="slick.jdbc.JdbcBackend.benchmark"         level="${log.jdbc.bench:-info}" />
+    <logger name="slick.jdbc.StatementInvoker.result"       level="${log.jdbc.result:-info}" />
+    <logger name="slick.jdbc.JdbcModelBuilder"              level="${log.createModel:-info}" />
+    <logger name="slick.memory.HeapBackend"                 level="${log.heap:-inherited}" />
+    <logger name="slick.memory.QueryInterpreter"            level="${log.interpreter:-inherited}" />
+    <logger name="slick.relational.ResultConverterCompiler" level="${log.resultConverter:-inherited}" />
+    <logger name="slick.util.AsyncExecutor"                 level="${log.asyncExecutor:-inherited}" />
+
+</configuration>
