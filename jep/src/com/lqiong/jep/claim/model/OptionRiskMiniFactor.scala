@@ -16,12 +16,6 @@ import org.apache.spark.sql.{DataFrame, Encoder, SparkSession}
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.control.NonFatal
 
-// https://github.com/akfamily/akshare/blob/6cadabcbd4b9d93fe585dc88d190022e2f8f6599/akshare/option/option_value_analysis_em.py#L5
-// http://175.24.206.163:30006/api/public/option_finance_underlying
-// http://175.24.206.163:30006/api/public/option_finance_board
-// http://175.24.206.163:30006/api/public/option_value_analysis_em
-// http://175.24.206.163:30006/api/public/option_risk_indicator_sse
-
 class OptionRiskMiniFactor @Inject() (
   val logger: LoggingAdapter,
   implicit val policy: RetryPolicy,

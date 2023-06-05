@@ -2,6 +2,7 @@ package tech.shangche.boat
 
 import akka.actor.typed.ActorSystem
 import com.lqiong.model.StockSymbol
+import com.typesafe.config.Config
 import com.onectrm.akshare.api.generated.stock.{
   stock_financial_analysis_indicatorRequest,
   stock_financial_analysis_indicatorResponse,
@@ -41,6 +42,7 @@ case class StockInfo(
 //override val stockData: StockDataServiceInter = new StockDataService()
 //implicit val system: ActorSystem[Nothing],
 class StockStock1(
+ config: Config,
   boatService: BoatService,
   val stockData: StockDataServiceInter
 ) extends StockStock {
@@ -49,7 +51,7 @@ class StockStock1(
   import scalacache._
   import scalacache.memcached._
   import net.spy.memcached._
-  val memcachedcache = "194.163.143.112:11211"
+  val memcachedcache = config.getString("memcachedcache");
   import scalacache.serialization.circe._
   import scalacache.modes.scalaFuture._
 

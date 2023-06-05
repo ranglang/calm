@@ -25,21 +25,6 @@ class TestPStateClass1 ()
 
   override implicit val timeout = Timeout(50.seconds)
 
-//  curl 'http://175.24.206.163:3012/api/app/get_schedule/v1?api_key=24968471deabe3326fec499a057bc9f8'
-// {"code":0,"rows":[{"enabled":1,"params":{"script":"#!/bin/sh\n\nls -l \npwd","annotate":0,"json":0},"timing":false,"max_children":1,"timeout":3600,"catch_up":0,"queue_max":1000,"timezone":"Asia/Shanghai","plugin":"shellplug","title":"test","category":"general","target":"maingrp","algo":"random","multiplex":0,"stagger":0,"retries":0,"retry_delay":0,"detached":0,"queue":0,"chain":"","chain_error":"","notify_success":"","notify_fail":"","web_hook":"","cpu_limit":0,"cpu_sustain":0,"memory_limit":0,"memory_sustain":0,"log_max_size":0,"notes":"","id":"el49oaes701","modified":1654939603,"created":1654939567,"username":"caedman"}],"list":{"page_size":50,"first_page":0,"last_page":0,"length":1,"type":"list"}}
-
-
-//  system.log.info(config.getString("akka.persistence.r2dbc.journal.class"))
-//  val stockCodeNameRef = spawn(Behaviors.receiveMessage[CodeNameActor.CodenameCommand] {
-//
-//
-//    case GetCodeName(code, replyTo) =>
-//      replyTo ! CodeNameResponse(s"OKKk2222_${code}")
-//      Behaviors.same
-//    case _ =>
-//      Behaviors.same
-//  })
-
   lazy val aRef = spawn(
     ContractStateActor1(),
     s"stockSymbol000001"
