@@ -14,7 +14,6 @@ import $file.env
 import boat.ivy
 import coursier.Repository
 import cronish.millSourcePath
-import jdk.internal.loader.BootLoader.packages
 import jep.{envMaps, forkArgsEnv}
 import mill.bsp.BSP.millSourcePath
 import mill.define.Target
@@ -178,7 +177,6 @@ object cronish extends ScalaModule with ScalafmtModule with LPublishModule {
 }
 
 object shared extends ScalaModule with ScalafmtModule with LPublishModule {
-  override def moduleDeps = Seq()
 
   override def scalacOptions: Target[Seq[String]] =
     settings.defaultScalacOptions1
@@ -571,7 +569,7 @@ object model extends LqiongModule with LPublishModule {
 
 object jep extends JepLqiongModule {
   override def moduleDeps =
-    super.moduleDeps ++ Seq(shared, shared, traitor, oj)
+    super.moduleDeps ++ Seq(shared, traitor, oj)
 
   override def ivyDeps = dependencies.lqiong.jep.++(
     Agg(

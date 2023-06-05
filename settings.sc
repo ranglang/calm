@@ -1,11 +1,14 @@
 import coursier.maven.MavenRepository
+import coursier.core.Authentication
+import $file.env
+
 
 val scalaVersion = "2.13.8"
 val scala212Version = "2.13.8"
 
 val customRepositories = Seq(
-  MavenRepository(
-    "https://maven.pkg.github.com/ranglang/packages",
+  MavenRepository("https://maven.pkg.github.com/ranglang/packages",
+    authentication = Some(Authentication(user = env.env.githubUser).withPassword(env.env.githubAk)),
   ),
   MavenRepository("https://s01.oss.sonatype.org/content/repositories/snapshots"),
   MavenRepository("http://dl.bintray.com/content/lightshed/maven"),
