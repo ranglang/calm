@@ -1293,7 +1293,6 @@ class QuantEngine @Inject() (
 
     f match {
       case Left(value) =>
-        println("ffffffff")
         Left(new Error("empty"))
       case Right(value) =>
         val v = value.asInstanceOf[java.util.HashMap[String, Any]]

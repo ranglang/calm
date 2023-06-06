@@ -303,10 +303,7 @@ trait JepLqiongModule extends ScalaModule with ScalafmtModule {
   )
 
   val f = System.getProperty("LD_LIBRARY_PATH")
-  println(s"fffffff $f");
-  println(s"fffffff $f");
-  println(s"fffffff $f");
-  println(s"fffffff $f");
+
   val envMaps: Map[String, String] = Map(
     "MILL_JVM_OPTS_PATH" -> "-Xss1G -Xmx10G",
     "SNOW_BALL_BACKEND"  -> env.env.a,
@@ -340,7 +337,7 @@ trait JepLqiongModule extends ScalaModule with ScalafmtModule {
   // bloop run jep --args notion1  -- -J-Djava.library.path=/Users/rang/opt/miniconda3/lib/python3.8/site-packages/jep
   val forkArgsEnv = Seq(
     "-Dquill.binds.log=true",
-    "--illegal-access=permit",
+    //"--illegal-access=permit",
     s"-Djava.library.path=${env.env.jepHome}"
   )
 }
