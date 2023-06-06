@@ -21,4 +21,4 @@ ts-node/node_modules
 .scala-build
 admin/src/main/scala/e/.bsp/
 .bloop
-shared/resources/application.conf
+shared/resources/local.conf
