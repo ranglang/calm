@@ -1,3 +1,3 @@
 mill mill.scalalib.GenIdea/idea
-mill mill.contrib.Bloop/install
+mill mill.contrib.bloop.Bloop/install
 

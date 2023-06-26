@@ -14,7 +14,7 @@ import $file.env
 import boat.ivy
 import coursier.Repository
 import cronish.millSourcePath
-import jep.{envMaps, forkArgsEnv}
+import jep.{forkArgsEnv}
 import mill.bsp.BSP.millSourcePath
 import mill.define.Target
 import mill.modules.Assembly._
@@ -41,8 +41,9 @@ trait SbtLqiongModule extends SbtModule with ScalafmtModule {
   override def scalacOptions: Target[Seq[String]] =
     settings.defaultScalacOptions1
 
-  override def repositories: Seq[Repository] =
-    super.repositories ++ settings.customRepositories
+ override def repositoriesTask = T.task {
+    super.repositoriesTask() ++ settings.customRepositories
+  }
 
   override def assemblyRules = super.assemblyRules.++(
     Seq(
@@ -108,8 +109,9 @@ object arc extends ScalaModule with ScalafmtModule {
   override def ivyDeps = super
     .ivyDeps()
 
-  override def repositories: Seq[Repository] =
-    super.repositories ++ settings.customRepositories
+ override def repositoriesTask = T.task {
+    super.repositoriesTask() ++ settings.customRepositories
+  }
 
 }
 
@@ -148,8 +150,9 @@ object traitor extends ScalaModule with ScalafmtModule with LPublishModule {
   override def scalacOptions: Target[Seq[String]] =
     settings.defaultScalacOptions1
 
-  override def repositories: Seq[Repository] =
-    super.repositories ++ settings.customRepositories
+ override def repositoriesTask = T.task {
+    super.repositoriesTask() ++ settings.customRepositories
+  }
 }
 
 object cronish extends ScalaModule with ScalafmtModule with LPublishModule {
@@ -167,8 +170,9 @@ object cronish extends ScalaModule with ScalafmtModule with LPublishModule {
   override def scalacOptions: Target[Seq[String]] =
     settings.defaultScalacOptions1
 
-  override def repositories: Seq[Repository] =
-    super.repositories ++ settings.customRepositories
+ override def repositoriesTask = T.task {
+    super.repositoriesTask() ++ settings.customRepositories
+  }
 
   override def sources = T.sources {
     millSourcePath / 'src / 'main / 'scala
@@ -226,8 +230,9 @@ object shared extends ScalaModule with ScalafmtModule with LPublishModule {
       )
   )
 
-  override def repositories: Seq[Repository] =
-    super.repositories ++ settings.customRepositories
+ override def repositoriesTask = T.task {
+    super.repositoriesTask() ++ settings.customRepositories
+  }
 
   def sourceRoot1 = os.pwd / 'fe / 'packages / "kun-shared" / 'src / 'src_managed
 
@@ -260,7 +265,7 @@ object shared extends ScalaModule with ScalafmtModule with LPublishModule {
 
 trait JepLqiongModule extends ScalaModule with ScalafmtModule {
 
-  object test extends Tests  with TestModule.ScalaTest  {
+  object test extends ScalaTests  with TestModule.ScalaTest  {
 
     override def ivyDeps =
       Agg(
@@ -272,7 +277,6 @@ trait JepLqiongModule extends ScalaModule with ScalafmtModule {
 
     override def forkArgs = forkArgsEnv
 
-    override def forkEnv = envMaps
   }
 
   override def scalaVersion: Target[String] = settings.scalaVersion
@@ -280,8 +284,9 @@ trait JepLqiongModule extends ScalaModule with ScalafmtModule {
   override def scalacOptions: Target[Seq[String]] =
     settings.defaultScalacOptions1
 
-  override def repositories: Seq[Repository] =
-    super.repositories ++ settings.customRepositories
+ override def repositoriesTask = T.task {
+    super.repositoriesTask() ++ settings.customRepositories
+  }
 
   override def assemblyRules = super.assemblyRules.++(
     Seq(
@@ -303,44 +308,11 @@ trait JepLqiongModule extends ScalaModule with ScalafmtModule {
   )
 
   val f = System.getProperty("LD_LIBRARY_PATH")
-  println(s"fffffff $f");
-  println(s"fffffff $f");
-  println(s"fffffff $f");
-  println(s"fffffff $f");
-  val envMaps: Map[String, String] = Map(
-    "MILL_JVM_OPTS_PATH" -> "-Xss1G -Xmx10G",
-    "SNOW_BALL_BACKEND"  -> env.env.a,
-    "EGG_BACKEND"  -> env.env.eggPrice,
-    "NOTION_AK"          -> env.env.notionAs,
-    "PYTHONHOME"         -> env.env.pythonHome,
-    "AK_SHARE_BACKEND"   -> env.env.akTool,
-    "CHROME_DRIVER_PATH" -> env.env.chromeDriver,
-    "SCHEDULE_ENABLE"    -> env.env.scheduleEnable,
-    "ENV"                -> "development",
-    "JQ_USERNAME"        -> env.env.jqUserName,
-    "TEMP_ENABLED"       -> env.env.tempEnable,
-    "JQ_PASSWORD"        -> env.env.jqPassword,
-    "TUSHARE_AK"         -> env.env.tuShare,
-    "USER_EMAIL"         -> env.env.userEmail,
-    "EMAIL_HOST"         -> env.env.mailHost,
-    "EMAIL_PORT"         -> env.env.mailPort,
-    "EMAIL_USER_NAME"    -> env.env.mailUserName,
-    "EMAIL_PASSWORD"     -> env.env.mailPassword,
-    "TRADE_USERNAME"     -> env.env.tradeUserName,
-    "PG_HOST"            -> env.env.pgHost,
-    "PG_PORT"            -> env.env.pgPort,
-    "PG_USERNAME"        -> env.env.pgUserName,
-    "PG_PASSWORD"        -> env.env.pgPassword,
-    "PG_DATABASE"        -> env.env.pgDatabase,
-    "TRADE_AK"           -> env.env.tradeAk,
-    "MEMCACHED"          -> env.env.memcached
-  )
 
-  // bloop server -Djava.library.path=/Users/rang/opt/miniconda3/lib/python3.8/site-packages/jep
-  // bloop run jep --args notion1  -- -J-Djava.library.path=/Users/rang/opt/miniconda3/lib/python3.8/site-packages/jep
+
   val forkArgsEnv = Seq(
     "-Dquill.binds.log=true",
-    "--illegal-access=permit",
+    //"--illegal-access=permit",
     s"-Djava.library.path=${env.env.jepHome}"
   )
 }
@@ -361,7 +333,6 @@ object boat extends LqiongModule with LPublishModule {
   override def scalaVersion: Target[String] = settings.scalaVersion
 
  override def forkArgs = Seq("-Xss2G", "-Xmx12G")
-override def forkEnv = envMaps
   override def moduleDeps = Seq(generated.asInstanceOf[PublishModule])
 
   override def ivyDeps = dependencies.lqiong.selenium
@@ -439,8 +410,6 @@ object notion extends LqiongModule with LPublishModule {
   )
 
   override def forkArgs = forkArgsEnv
-
-  override def forkEnv = envMaps
 
   override def ivyDeps = dependencies.lqiong.selenium
     .++(
@@ -642,6 +611,4 @@ object jep extends JepLqiongModule {
   override def mainClass = Some("e.Entry")
 
   override def forkArgs = forkArgsEnv
-
-  override def forkEnv = envMaps
 }

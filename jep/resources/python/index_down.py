@@ -92,7 +92,10 @@ def dataList(code, startdate, enddate):
 
 def indexChaodie(code):
     l = ak.tool_trade_date_hist_sina()
-    l33 = l[l['trade_date'] < pd.to_datetime("today")]
+    l33 = l[l['trade_date'] < datetime.now().date()]
+    print("ln")
+    print(l33)
+    #l33 = l[l['trade_date'] < pd.to_datetime("today")]
     list1=np.array(list(l33['trade_date'].tail(101)))
     start_date=list1[0]
     end_date=list1[-1]
