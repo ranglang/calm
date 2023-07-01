@@ -1,8 +1,8 @@
-akshare>=1.3.72
+akshare==1.9.80
+pysnowball
 Pillow>=8.0
 mplfinance
 xlrd==1.2.0
-cassandra-driver
 tushare
 jqdatasdk
 tqdm
@@ -10,5 +10,6 @@ seaborn
 tqsdk
 setuptools
 tqdm
+pandas==1.5
 jep==3.9.1
 cupfromriver
