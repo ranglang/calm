@@ -30,9 +30,9 @@ val scassandraVersion = "3.2.0"
 val qiniuVersion = "7.2.20"
 
 val aPublishVersion = "0.0.42"
-val wd =os.pwd
+val wd = os.pwd
 
-os.write.over(wd/"common.sh", s"VERSION=$aPublishVersion" )
+os.write.over(wd / "common.sh", s"VERSION=$aPublishVersion")
 
 trait SbtLqiongModule extends SbtModule with ScalafmtModule {
 
@@ -41,7 +41,7 @@ trait SbtLqiongModule extends SbtModule with ScalafmtModule {
   override def scalacOptions: Target[Seq[String]] =
     settings.defaultScalacOptions1
 
- override def repositoriesTask = T.task {
+  override def repositoriesTask = T.task {
     super.repositoriesTask() ++ settings.customRepositories
   }
 
@@ -74,7 +74,7 @@ object foo extends JavaModule {
 
 }
 
-object tt extends  ScalaModule {
+object tt extends ScalaModule {
 
   override def scalacOptions: Target[Seq[String]] =
     settings.defaultScalacOptions12
@@ -84,13 +84,13 @@ object tt extends  ScalaModule {
   override def moduleDeps = Seq(foo)
 }
 
-object oj extends  JavaModule {
+object oj extends JavaModule {
 
   override def mainClass = Some("oj.R")
 
 }
 
-object generated extends  JavaModule with  LPublishModule {
+object generated extends JavaModule with LPublishModule {
   override def ivyDeps = super.ivyDeps().++(dependencies.lqiong.circleJava)
 }
 
@@ -109,7 +109,7 @@ object arc extends ScalaModule with ScalafmtModule {
   override def ivyDeps = super
     .ivyDeps()
 
- override def repositoriesTask = T.task {
+  override def repositoriesTask = T.task {
     super.repositoriesTask() ++ settings.customRepositories
   }
 
@@ -150,7 +150,7 @@ object traitor extends ScalaModule with ScalafmtModule with LPublishModule {
   override def scalacOptions: Target[Seq[String]] =
     settings.defaultScalacOptions1
 
- override def repositoriesTask = T.task {
+  override def repositoriesTask = T.task {
     super.repositoriesTask() ++ settings.customRepositories
   }
 }
@@ -170,7 +170,7 @@ object cronish extends ScalaModule with ScalafmtModule with LPublishModule {
   override def scalacOptions: Target[Seq[String]] =
     settings.defaultScalacOptions1
 
- override def repositoriesTask = T.task {
+  override def repositoriesTask = T.task {
     super.repositoriesTask() ++ settings.customRepositories
   }
 
@@ -228,9 +228,9 @@ object shared extends ScalaModule with ScalafmtModule with LPublishModule {
         ivy"org.typelevel::frameless-dataset:0.13.0",
         ivy"org.typelevel::frameless-cats:0.13.0"
       )
-  )
+    )
 
- override def repositoriesTask = T.task {
+  override def repositoriesTask = T.task {
     super.repositoriesTask() ++ settings.customRepositories
   }
 
@@ -265,7 +265,7 @@ object shared extends ScalaModule with ScalafmtModule with LPublishModule {
 
 trait JepLqiongModule extends ScalaModule with ScalafmtModule {
 
-  object test extends ScalaTests  with TestModule.ScalaTest  {
+  object test extends ScalaTests with TestModule.ScalaTest {
 
     override def ivyDeps =
       Agg(
@@ -284,7 +284,7 @@ trait JepLqiongModule extends ScalaModule with ScalafmtModule {
   override def scalacOptions: Target[Seq[String]] =
     settings.defaultScalacOptions1
 
- override def repositoriesTask = T.task {
+  override def repositoriesTask = T.task {
     super.repositoriesTask() ++ settings.customRepositories
   }
 
@@ -332,13 +332,14 @@ trait LqiongModule extends ScalaModule with ScalafmtModule {
 object boat extends LqiongModule with LPublishModule {
   override def scalaVersion: Target[String] = settings.scalaVersion
 
- override def forkArgs = Seq("-Xss2G", "-Xmx12G")
+  override def forkArgs = Seq("-Xss2G", "-Xmx12G")
+
   override def moduleDeps = Seq(generated.asInstanceOf[PublishModule])
 
   override def ivyDeps = dependencies.lqiong.selenium
     .++(
       dependencies.lqiong.monovore
-  )
+    )
     .++(
       dependencies.lqiong.modelJar
     )
@@ -348,7 +349,7 @@ object boat extends LqiongModule with LPublishModule {
     .++(
       dependencies.lqiong.modelJar
     ).++(
-      dependencies.lqiong.cache
+    dependencies.lqiong.cache
   )
     .++(dependencies.lqiong.akka)
     .++(
@@ -360,7 +361,7 @@ object boat extends LqiongModule with LPublishModule {
     .++(
       dependencies.lqiong.chimneybase
     )
-  .++(
+    .++(
       dependencies.lqiong.tofu
     )
     .++(
@@ -396,8 +397,9 @@ object boat extends LqiongModule with LPublishModule {
 }
 
 object notion extends LqiongModule with LPublishModule {
-//  override def moduleDeps: Seq[PublishModule]  = super.moduleDeps ++ Seq(admin.asInstanceOf[PublishModule])
+  //  override def moduleDeps: Seq[PublishModule]  = super.moduleDeps ++ Seq(admin.asInstanceOf[PublishModule])
   override def scalaVersion: Target[String] = settings.scalaVersion
+
   override def pomSettings = PomSettings(
     description = "models for stock via dsl",
     organization = "tech.shangche",
@@ -464,7 +466,9 @@ object notion extends LqiongModule with LPublishModule {
 
 trait LPublishModule extends PublishModule {
   override def publishVersion = aPublishVersion
+
   override def sonatypeUri: String = "https://maven.pkg.github.com/ranglang/claim"
+
   def pomSettings = PomSettings(
     description = "tools for shangche",
     organization = "tech.shangche",
@@ -606,7 +610,7 @@ object jep extends JepLqiongModule {
     )
     .++(
       dependencies.lqiong.test
-  )
+    )
 
   override def mainClass = Some("e.Entry")
 

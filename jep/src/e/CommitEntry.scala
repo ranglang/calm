@@ -16,44 +16,34 @@ object CommitEntry extends IOApp {
         }
       }
       whyInput <- {
-        LineIO.prompt("请填写你为什么提交: ", required = true)
+        LineIO.prompt("Why you are submitting this code: ", required = true)
       }
       selfCheckInput <- {
-        ReadListOption("是否已经列出自测case并通过自测", ListBuffer("已通过自测", "未通过自测"))
+        ReadListOption("Is there a list of self-tested use cases that are available and tested? :", ListBuffer("YES", "NO"))
       }
       moduleInput <- {
-        LineIO.prompt("你的模块划分是否合理(文件夹路径是否正确: ")
+        LineIO.prompt("Is the module and code directory structure clear? :")
       }
-      namingInput <- LineIO.prompt("您的命名是否正确: ")
       changeLogInput <- {
-        LineIO.prompt("是否已经填写ChangeLog Entry: ")
-      }
-      testInput <- {
-        LineIO.prompt("是否可测试: ")
-      }
-      fileInput <- {
-        LineIO.prompt("文件结构是否合理: ")
+        LineIO.prompt("Do your changes affect ChangeLog or the relevant documentation? :")
       }
       uselessInput <- {
-        LineIO.prompt("是否有其他代码需要移除或重构: ")
+        LineIO.prompt("Is there code that needs to be refactored or removed? : ")
       }
       relationshipInput <- {
-        LineIO.prompt("实体关系，抽象，组装有更好的办法么: ")
+        LineIO.prompt("Is there a better design pattern in code?")
       }
       sureInput <- {
-        LineIO.prompt("你了解模块关系和边界条件，异常处理处理么？ ")
+        LineIO.prompt("Do you understand boundary conditions? Do you deal with exceptions?")
       }
       designPatternInput <- {
-        LineIO.prompt("SOLID满足么？")
+        LineIO.prompt("Does your code meet the SOLID principle？")
       }
       _ <- {
         val resultMsg = List(
           whyInput,
           moduleInput,
-          namingInput,
           changeLogInput,
-          testInput,
-          fileInput,
           uselessInput,
           relationshipInput,
           sureInput,
