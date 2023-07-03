@@ -1,10 +1,20 @@
 package m.utils
 
 import cats.effect.{IO, Resource}
-import jep.SharedInterpreter
+import com.typesafe.config.ConfigFactory
+import jep.{MainInterpreter, SharedInterpreter}
+
+import scala.util.control.NonFatal
 
 object Clipboard {
+
   private val acquire = IO {
+    try {
+      val file = ConfigFactory.load().getString("JEP_SO")
+      MainInterpreter.setJepLibraryPath(file)
+    } catch {
+      case NonFatal(x) => {}
+    }
     val interp = new SharedInterpreter()
     interp
   }

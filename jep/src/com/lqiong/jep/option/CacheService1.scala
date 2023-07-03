@@ -11,7 +11,7 @@ import scala.concurrent.{ExecutionContext, Future}
 @JsonCodec
 case class StocKItem1(`代码`: String, `名称`: String, `最新价`: Double)
 
-class CacheService1(config: Config)( implicit val ex: ExecutionContext) {
+class CacheService1(config: Config)(implicit val ex: ExecutionContext) {
 
   val memcachedcache = config.getString("memcachedcache")
 

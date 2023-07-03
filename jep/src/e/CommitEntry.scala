@@ -16,19 +16,28 @@ object CommitEntry extends IOApp {
         }
       }
       whyInput <- {
-        LineIO.prompt("Why you are submitting this code: ", required = true)
+        LineIO.prompt("Why you are submitting this code", required = true)
+      }
+      whySolutionInput <- {
+        LineIO.prompt("Why you are use this solution", required = true)
+      }
+      uiThemeInput <- {
+        LineIO.prompt("Have you check the theme", required = true)
       }
       selfCheckInput <- {
-        ReadListOption("Is there a list of self-tested use cases that are available and tested? :", ListBuffer("YES", "NO"))
+        ReadListOption(
+          "Is there a list of self-tested use cases that are available and tested?",
+          ListBuffer("YES", "NO")
+        )
       }
       moduleInput <- {
-        LineIO.prompt("Is the module and code directory structure clear? :")
+        LineIO.prompt("Is the module and code directory structure clear?")
       }
       changeLogInput <- {
-        LineIO.prompt("Do your changes affect ChangeLog or the relevant documentation? :")
+        LineIO.prompt("Do your changes affect ChangeLog or the relevant documentation?")
       }
       uselessInput <- {
-        LineIO.prompt("Is there code that needs to be refactored or removed? : ")
+        LineIO.prompt("Is there code that needs to be refactored or removed? ")
       }
       relationshipInput <- {
         LineIO.prompt("Is there a better design pattern in code?")
@@ -42,9 +51,11 @@ object CommitEntry extends IOApp {
       _ <- {
         val resultMsg = List(
           whyInput,
+          whySolutionInput,
           moduleInput,
           changeLogInput,
           uselessInput,
+          uiThemeInput,
           relationshipInput,
           sureInput,
           designPatternInput,

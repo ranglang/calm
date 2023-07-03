@@ -311,9 +311,7 @@ trait JepLqiongModule extends ScalaModule with ScalafmtModule {
 
 
   val forkArgsEnv = Seq(
-    "-Dquill.binds.log=true",
-    //"--illegal-access=permit",
-    s"-Djava.library.path=${env.env.jepHome}"
+    "-Dquill.binds.log=true"
   )
 }
 

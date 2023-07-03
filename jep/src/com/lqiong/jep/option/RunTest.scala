@@ -1,9 +1,14 @@
 package com.lqiong.jep.option
 
-import jep.SharedInterpreter
+import com.typesafe.config.ConfigFactory
+import jep.{MainInterpreter, SharedInterpreter}
 import org.apache.spark.sql.SparkSession
 
 object RunTest extends App {
+
+  val file = ConfigFactory.load().getString("JEP_SO")
+
+  MainInterpreter.setJepLibraryPath(file)
   implicit val interp: SharedInterpreter = new SharedInterpreter()
 
   implicit val spark: SparkSession = SparkSession

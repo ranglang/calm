@@ -5,8 +5,9 @@ import cats.effect.{IO, Resource}
 import com.github.takezoe.retry.RetryPolicy
 import com.google.inject.Inject
 import com.google.inject.name.Named
+import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.Logger
-import jep.SharedInterpreter
+import jep.{MainInterpreter, SharedInterpreter}
 import org.apache.spark.sql.types.{DateType, StructField, StructType}
 import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 
@@ -28,7 +29,16 @@ class JepExecutor @Inject() (
 
   private def mkJqResource() = {
     val acquire = IO {
+      try {
+        val file = ConfigFactory.load().getString("JEP_SO")
+        MainInterpreter.setJepLibraryPath(file)
+      } catch {
+        case NonFatal(x) => {
+
+        }
+      }
       val interp = new SharedInterpreter()
+
       logger.info("jep executor jep mak resource");
       interp.exec("import os;");
       interp.exec("import sys;");
@@ -53,6 +63,14 @@ class JepExecutor @Inject() (
   def mkResource() = {
     logger.info("jep executor jep mak resource");
     val acquire = IO {
+      try {
+        val file = ConfigFactory.load().getString("JEP_SO")
+        MainInterpreter.setJepLibraryPath(file)
+      } catch {
+        case NonFatal(x) => {
+
+        }
+      }
       val interp = new SharedInterpreter()
       interp.exec("import os;");
       interp.exec("import sys;");

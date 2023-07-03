@@ -4,7 +4,7 @@ import akka.actor.ActorSystem
 import akka.actor.typed.scaladsl.adapter.ClassicActorSystemOps
 import akka.event.LoggingAdapter
 import akka.util.Timeout
-import com.github.takezoe.retry.{RetryPolicy, retry}
+import com.github.takezoe.retry.{retry, RetryPolicy}
 import com.google.inject.Inject
 import com.lqiong.claim.actor
 import com.lqiong.claim.actor.CodeNameActor

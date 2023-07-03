@@ -16,27 +16,26 @@ object LineIO {
       i <- IO {
         reader.readLine(prompt)
       }
-    } yield s"${prompt}: ${i}"
+    } yield s"##### ${prompt}: \n${i}"
   }
 
   def prompt(prompt: String, required: Boolean): IO[String] = {
     if (required) {
       IO(
-        reader.readLine(s"${prompt} (必选)")
+        reader.readLine(s"##### ${prompt} (Required)")
       ).flatMap { r =>
         if (r.isEmpty) {
           LineIO.prompt(prompt, required)
         } else {
-          IO.print(r)
+          IO(r)
         }
-      }.map(i => s"${prompt}: ${i}")
-
+      }.map(i => s"##### ${prompt}: \n ${i}")
     } else {
       for {
         i <- IO {
           reader.readLine(prompt)
         }
-      } yield s"${prompt}: ${i}"
+      } yield s"##### ${prompt}: \n ${i}"
     }
 
   }

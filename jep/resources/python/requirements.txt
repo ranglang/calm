@@ -13,3 +13,4 @@ tqdm
 pandas==1.5
 jep==3.9.1
 cupfromriver
+pyperclip
