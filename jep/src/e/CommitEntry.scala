@@ -42,6 +42,9 @@ object CommitEntry extends IOApp {
       relationshipInput <- {
         LineIO.prompt("Is there a better design pattern in code?")
       }
+      performanceOptimizationInput <- {
+        LineIO.prompt("Is there  considerration for optionmizaiton for example for lazy import ?")
+      }
       sureInput <- {
         LineIO.prompt("Do you understand boundary conditions? Do you deal with exceptions?")
       }
@@ -57,6 +60,7 @@ object CommitEntry extends IOApp {
           uselessInput,
           uiThemeInput,
           relationshipInput,
+          performanceOptimizationInput,
           sureInput,
           designPatternInput,
           selfCheckInput
