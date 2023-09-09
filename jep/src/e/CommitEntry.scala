@@ -18,6 +18,9 @@ object CommitEntry extends IOApp {
       whyInput <- {
         LineIO.prompt("Why you are submitting this code", required = true)
       }
+      whyOpensource <- {
+        LineIO.prompt("Opensource Header", required = true)
+      }
       whySolutionInput <- {
         LineIO.prompt("Why you are use this solution", required = true)
       }
@@ -56,6 +59,7 @@ object CommitEntry extends IOApp {
           whyInput,
           whySolutionInput,
           moduleInput,
+          whyOpensource,
           changeLogInput,
           uselessInput,
           uiThemeInput,
