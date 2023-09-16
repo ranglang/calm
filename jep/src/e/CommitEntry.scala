@@ -15,6 +15,12 @@ object CommitEntry extends IOApp {
           AnsiConsole.systemInstall()
         }
       }
+      repeatInfo <- {
+        LineIO.prompt("Did you repeat the word", required = true)
+      }
+      specInfomation <- {
+        LineIO.prompt("Did you know your delivery specification", required = true)
+      }
       whyInput <- {
         LineIO.prompt("Why you are submitting this code", required = true)
       }
@@ -27,6 +33,12 @@ object CommitEntry extends IOApp {
       uiThemeInput <- {
         LineIO.prompt("Have you check the theme", required = true)
       }
+      styleSheetLogic <- {
+        LineIO.prompt("Do you have stylesheet hierarchy , gap  border autoWidth ", required = true)
+      }
+      styleRecover <- {
+        LineIO.prompt("Have you check the theme", required = true)
+      }
       selfCheckInput <- {
         ReadListOption(
           "Is there a list of self-tested use cases that are available and tested?",
@@ -37,10 +49,15 @@ object CommitEntry extends IOApp {
         LineIO.prompt("Is the module and code directory structure clear?")
       }
       changeLogInput <- {
-        LineIO.prompt("Do your changes affect ChangeLog or the relevant documentation?")
+        LineIO.prompt(
+          "Do your changes affect ChangeLog or the relevant documentation, feature or hotfix ?"
+        )
       }
       uselessInput <- {
         LineIO.prompt("Is there code that needs to be refactored or removed? ")
+      }
+      sizeInput <- {
+        LineIO.prompt("Size limitted for Pull Request ? ")
       }
       relationshipInput <- {
         LineIO.prompt("Is there a better design pattern in code?")
@@ -57,7 +74,10 @@ object CommitEntry extends IOApp {
       _ <- {
         val resultMsg = List(
           whyInput,
+          sizeInput,
+          styleRecover,
           whySolutionInput,
+          styleSheetLogic,
           moduleInput,
           whyOpensource,
           changeLogInput,
@@ -66,6 +86,8 @@ object CommitEntry extends IOApp {
           relationshipInput,
           performanceOptimizationInput,
           sureInput,
+          specInfomation,
+          repeatInfo,
           designPatternInput,
           selfCheckInput
         ).mkString("\n")

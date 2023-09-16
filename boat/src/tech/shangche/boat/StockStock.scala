@@ -42,7 +42,7 @@ case class StockInfo(
 //override val stockData: StockDataServiceInter = new StockDataService()
 //implicit val system: ActorSystem[Nothing],
 class StockStock1(
- config: Config,
+  config: Config,
   boatService: BoatService,
   val stockData: StockDataServiceInter
 ) extends StockStock {
