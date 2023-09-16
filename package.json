@@ -11,6 +11,7 @@
     "interview": "mill jep.runMain m.InterviewEntry",
     "trade": "mill jep.assembly; java -cp out/jep/assembly.dest/out-tmp.jar e.TradeEntry ",
     "commit": "mill jep.assembly; java -cp out/jep/assembly.dest/out-tmp.jar e.CommitEntry ",
+    "ri:reflect": "mill jep.assembly; java -cp out/jep/assembly.dest/out-tmp.jar e.ReflectRIEntry ",
     "mill:commit": "mill jep.runMain e.CommitEntry ",
     "vim:option": "zed jep/src/e/OptionConfig.scala",
     "reflect": "fig run reflect",
