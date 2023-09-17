@@ -16,6 +16,14 @@ object ReflectRIEntry extends IOApp {
           AnsiConsole.systemInstall()
         }
       }
+      ia <- {
+        LineIO.prompt(
+          """
+            | describe action : just do it .
+            |""".stripMargin,
+          required = true
+        )
+      }
       i0 <- {
         LineIO.prompt(
           """
