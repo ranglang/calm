@@ -83,7 +83,8 @@ object ReflectRIEntry extends IOApp {
           i1,
           i2,
           i3,
-          i4
+          i4,
+          ia
         ).mkString("\n")
         Clipboard.text(resultMsg)
       }
