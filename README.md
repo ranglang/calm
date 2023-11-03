@@ -14,3 +14,12 @@ source .env
 
 - arm
 https://www.akshare.xyz/installation.html
+
+
+
+## use direnv to load .envrc
+
+https://direnv.net/
+
+
+

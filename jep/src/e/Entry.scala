@@ -820,12 +820,12 @@ object Entry
                 case Category.notion1 =>
                   System.out.println(System.getProperty("java.library.path"))
                   //                  o.
-                  System.out.println(
-                    System.setProperty(
-                      "CHROME_DRIVER_PATH",
-                      "/Users/rang/rang/claim/selenium/chromedriver"
-                    )
-                  )
+//                  System.out.println(
+//                    System.setProperty(
+//                      "CHROME_DRIVER_PATH",
+//                      "/Users/rang/rang/claim/selenium/chromedriver"
+//                    )
+//                  )
 
                   logger.info(System.getProperty("java.library.path"))
                   logger.info(System.getProperty("java.library.path"))
