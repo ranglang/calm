@@ -45,6 +45,9 @@ object CommitEntry extends IOApp {
           ListBuffer("YES", "NO")
         )
       }
+      typeSafe <- {
+        LineIO.prompt("Is your code is type safe , your input should be clarify ?")
+      }
       moduleInput <- {
         LineIO.prompt("Is the module and code directory structure clear?")
       }
@@ -93,7 +96,8 @@ object CommitEntry extends IOApp {
           specInfomation,
           repeatInfo,
           designPatternInput,
-          selfCheckInput
+          selfCheckInput,
+          typeSafe
         ).mkString("\n")
         Clipboard.text(resultMsg)
       }
