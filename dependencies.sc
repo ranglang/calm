@@ -452,8 +452,6 @@ object lqiong {
 
   val selenium = Agg(
     ivy"org.jsoup:jsoup:1.13.1",
-//    ivy"org.seleniumhq.selenium:selenium-java:3.141.59",
-    ivy"org.seleniumhq.selenium:selenium-java:4.1.2"
   )
 
   val test = Agg(
