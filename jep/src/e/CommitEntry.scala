@@ -78,7 +78,9 @@ object CommitEntry extends IOApp {
         LineIO.prompt("Is there  considerration for optionmizaiton for example for lazy import ?")
       }
       longTerm <- {
-        LineIO.prompt("Do you summarize the specific for you components , ex. Tooltip & typhony  or LoadingButton ?")
+        LineIO.prompt(
+          "Do you summarize the specific for you components , ex. Tooltip & typhony  or LoadingButton ?"
+        )
       }
       sureInput <- {
         LineIO.prompt("Do you understand boundary conditions? Do you deal with exceptions?")
@@ -92,7 +94,7 @@ object CommitEntry extends IOApp {
           sizeInput,
           loadingRetry,
           longTerm,
-            styleRecover,
+          styleRecover,
           whySolutionInput,
           styleSheetLogic,
           moduleInput,
@@ -106,7 +108,8 @@ object CommitEntry extends IOApp {
           specInfomation,
           repeatInfo,
           permissionInput,
-            designPatternInput,
+          designPatternInput,
+          refactorTarget,
           selfCheckInput,
           typeSafe
         ).mkString("\n")
