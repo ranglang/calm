@@ -65,6 +65,9 @@ object CommitEntry extends IOApp {
       relationshipInput <- {
         LineIO.prompt("Is there a better design pattern in code?")
       }
+      permissionInput <- {
+        LineIO.prompt("Is permission is handled ?")
+      }
       loadingRetry <- {
         LineIO.prompt("Is there a logic which handles retry and timeout ?")
       }
@@ -102,7 +105,8 @@ object CommitEntry extends IOApp {
           sureInput,
           specInfomation,
           repeatInfo,
-          designPatternInput,
+          permissionInput,
+            designPatternInput,
           selfCheckInput,
           typeSafe
         ).mkString("\n")
