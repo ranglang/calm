@@ -32,6 +32,15 @@ object ReflectRIEntry extends IOApp {
           required = true
         )
       }
+
+      i0 <- {
+        LineIO.prompt(
+          """
+            |      智、信、仁、勇、严
+            |            |""".stripMargin,
+          required = true
+        )
+      }
       repeatInfo <- {
         LineIO.prompt(
           """
@@ -76,6 +85,18 @@ object ReflectRIEntry extends IOApp {
           required = true
         )
       }
+      i5 <- {
+        LineIO.prompt(
+          """
+            | Problem solving is no creating，
+            | Don't be limited by
+            | This principle is that energy always moves along the path of least resistance
+            |and that any change you attempt to make in your life will not work if the
+            |path of least resistance does not lead in that direction.
+            |""".stripMargin,
+          required = true
+        )
+      }
       _ <- {
         val resultMsg = List(
           repeatInfo,
@@ -84,6 +105,7 @@ object ReflectRIEntry extends IOApp {
           i2,
           i3,
           i4,
+          i5,
           ia
         ).mkString("\n")
         Clipboard.text(resultMsg)
