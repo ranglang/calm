@@ -16,6 +16,14 @@ object ReflectRIEntry extends IOApp {
           AnsiConsole.systemInstall()
         }
       }
+      i <- {
+        LineIO.prompt(
+          """
+            | build your momentum. change any underlying structure.
+            |""".stripMargin,
+          required = true
+        )
+      }
       ia <- {
         LineIO.prompt(
           """
@@ -33,7 +41,7 @@ object ReflectRIEntry extends IOApp {
         )
       }
 
-      i0 <- {
+      i133 <- {
         LineIO.prompt(
           """
             |      智、信、仁、勇、严
@@ -101,13 +109,14 @@ object ReflectRIEntry extends IOApp {
       _ <- {
         val resultMsg = List(
           repeatInfo,
+          i,
           i0,
           i1,
           i2,
           i3,
           i4,
           i5,
-          ia
+          ia,i133
         ).mkString("\n")
         Clipboard.text(resultMsg)
       }
