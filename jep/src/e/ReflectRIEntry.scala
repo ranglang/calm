@@ -37,6 +37,7 @@ object ReflectRIEntry extends IOApp {
         LineIO.prompt(
           """
             |      智、信、仁、勇、严
+            |      仁以附衆，敬以招賢，信以必賞，勇以益氣，嚴以一令
             |            |""".stripMargin,
           required = true
         )
