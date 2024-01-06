@@ -1,6 +1,5 @@
 package e
 
-//class ReflectRIEntry {
 import cats.effect.{ExitCode, IO, IOApp}
 import e.model.LineIO
 import m.utils.Clipboard
