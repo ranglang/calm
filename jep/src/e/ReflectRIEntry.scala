@@ -85,6 +85,20 @@ object ReflectRIEntry extends IOApp {
         )
       }
 
+      i7 <- {
+        LineIO.prompt(
+          """
+            |//      What we do ?（背景）
+            |//      Why we do it ? or What’s the problem（解决什么问题）
+            |//      How we do it ?（我们怎样做）
+            |//      Validation（如何验证）
+            |//      Discussion / Analysis（讨论、分析）
+            |//      Summary（总结）
+            |            |""".stripMargin,
+          required = true
+        )
+      }
+
       i4 <- {
         LineIO.prompt(
           """
@@ -111,6 +125,7 @@ object ReflectRIEntry extends IOApp {
           i,
           i0,
           i1,
+          i7,
           i2,
           i3,
           i4,
