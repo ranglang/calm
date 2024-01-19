@@ -16,10 +16,11 @@ object CommitEntry extends IOApp {
         }
       }
       repeatInfo <- {
-        LineIO.prompt("Did you repeat the word", required = true)
+        LineIO.prompt("Did you repeat the word Use Scenario", required = true)
+//        scenario
       }
       specInfomation <- {
-        LineIO.prompt("Did you know your delivery specification", required = true)
+        LineIO.prompt("Did you know your delivery specification,", required = true)
       }
       whyInput <- {
         LineIO.prompt("Why you are submitting this code", required = true)
@@ -64,6 +65,9 @@ object CommitEntry extends IOApp {
       }
       relationshipInput <- {
         LineIO.prompt("Is there a better design pattern in code?")
+      }
+      aInput <- {
+        LineIO.prompt("What's the Domain ?")
       }
       permissionInput <- {
         LineIO.prompt("Is permission is handled ?")
