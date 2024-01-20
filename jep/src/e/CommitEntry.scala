@@ -109,6 +109,7 @@ object CommitEntry extends IOApp {
           relationshipInput,
           performanceOptimizationInput,
           sureInput,
+          aInput,
           specInfomation,
           repeatInfo,
           permissionInput,
