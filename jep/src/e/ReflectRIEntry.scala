@@ -107,6 +107,15 @@ object ReflectRIEntry extends IOApp {
           required = true
         )
       }
+      i11 <- {
+        LineIO.prompt(
+          """
+            | At least you can try 10 times
+            |
+            |""".stripMargin,
+          required = true
+        )
+      }
       i5 <- {
         LineIO.prompt(
           """
@@ -131,6 +140,7 @@ object ReflectRIEntry extends IOApp {
           i4,
           i5,
           ia,
+          i11,
           i133
         ).mkString("\n")
         Clipboard.text(resultMsg)
